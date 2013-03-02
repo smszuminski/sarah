@@ -1,4 +1,4 @@
 sarah
 =====
 
-Learning Python
+Learning Python - sort of.
