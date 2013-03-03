@@ -9,21 +9,22 @@ Flask and sqlite3.
 :copyright: (c) 2010 by Armin Ronacher.
 :license: BSD, see LICENSE for more details.
 """
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 SECRET_KEY = 'development key'
 
 # create our little application :)
 app = Flask(__name__)
 app.debug = True
 
-@app.route('/video/<videoid>')
-def showvideo(videoid="unset", methods=["GET"]):
-	return render_template("video.html", videoid=videoid)
+@app.route('/video')
+def show_video(methods=["GET"]):
+    videoid = request.args['food']
+    return render_template("video.html", videoid=videoid)
  #   return output
 
 @app.route('/')
 def main_site():
-	return render_template("index.html")
+    return render_template("index.html")
  #   return output
 
 
